@@ -804,11 +804,12 @@ func (c Client) newRequest(method string, metadata requestMetadata) (req *http.R
 	}
 
 	// Set incoming content-length.
-	req.ContentLength = metadata.contentLength
-	if req.ContentLength <= -1 {
-		// For unknown content length, we upload using transfer-encoding: chunked.
-		req.TransferEncoding = []string{"chunked"}
-	}
+	//req.ContentLength = metadata.contentLength
+	//if req.ContentLength <= -1 {
+	//	// For unknown content length, we upload using transfer-encoding: chunked.
+	//	req.TransferEncoding = []string{"chunked"}
+	//}
+	req.TransferEncoding = []string{"chunked"}
 
 	// set md5Sum for content protection.
 	if len(metadata.contentMD5Base64) > 0 {

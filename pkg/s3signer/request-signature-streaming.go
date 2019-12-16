@@ -102,7 +102,7 @@ func prepareStreamingRequest(req *http.Request, sessionToken string, dataLen int
 
 	req.Header.Set("X-Amz-Date", timestamp.Format(iso8601DateFormat))
 	// Set content length with streaming signature for each chunk included.
-	req.ContentLength = getStreamLength(dataLen, int64(payloadChunkSize))
+	//req.ContentLength = getStreamLength(dataLen, int64(payloadChunkSize))
 	req.Header.Set("x-amz-decoded-content-length", strconv.FormatInt(dataLen, 10))
 }
 
